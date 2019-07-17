@@ -6,7 +6,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TesteAutomatizado {
 
 	public static void main(String[] args) {
-		/* Para as versões recentes do FireFox precisamos do
+		/*
+		 * Link de download do selenium na versão mais recente:
+		 *  - http://selenium-release.storage.googleapis.com/index.html 
+		 */
+		/*
+		 * Para as versões recentes do FireFox precisamos do
 		 * GeckoDriver: download do último release 
 		 *  - https://github.com/mozilla/geckodriver/releases
 		 * criar o caminho do geckodriver nas variaveis de ambiente 
