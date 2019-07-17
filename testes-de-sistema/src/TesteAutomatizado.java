@@ -16,8 +16,8 @@ public class TesteAutomatizado {
 		 * Para as versões recentes do FireFox precisamos do
 		 * GeckoDriver: download do último release 
 		 *  - https://github.com/mozilla/geckodriver/releases
-		 * criar o caminho do geckodriver nas variaveis de ambiente 
-		 * do windows > variaveis do sistema > path > editar > novo
+		 * criar o caminho do geckodriver nas variáveis de ambiente 
+		 * do windows > variáveis do sistema > path > editar > novo
 		 * 
 		 * Utilizamos a linha de código abaixo com o caminho do 
 		 * executável do gecko driver
