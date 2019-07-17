@@ -7,7 +7,8 @@ public class TesteAutomatizado {
 
 	public static void main(String[] args) {
 		/* Para as versões recentes do FireFox precisamos do
-		 * GeckoDriver:
+		 * GeckoDriver: download do último release 
+		 *  - https://github.com/mozilla/geckodriver/releases
 		 * criar o caminho do geckodriver nas variaveis de ambiente 
 		 * do windows > variaveis do sistema > path > editar > novo
 		 * 
