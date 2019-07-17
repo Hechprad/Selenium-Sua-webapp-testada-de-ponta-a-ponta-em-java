@@ -1,4 +1,4 @@
-# Selenium: Sua webapp testada de ponta a ponta em java - Curso Alura
+# Selenium: Sua webapp testada de ponta a ponta em java
 *** 
 ### 📌 Download do *Selenium* na versão mais recente:
  - Link para [download](http://selenium-release.storage.googleapis.com/index.html) da última versão do selenium.
