@@ -5,6 +5,7 @@
    - Versão utilizada: selenium-server-standalone-4.0.0-alpha-2.jar
 ***
 ### 📌Para o Google Chrome precisamos do *ChromeDriver*.
+ - Link com informações do [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads/)
  - Link para [download](http://chromedriver.storage.googleapis.com/index.html) do ChromeDriver.
    - Versão utilizada: 75.0.3770.90 chromedriver_win32
  - Criar o caminho do chromedriver nas variáveis de ambiente do windows > variáveis do sistema > path > editar > novo
