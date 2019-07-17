@@ -1,6 +1,8 @@
 package br.com.hech.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -27,6 +29,7 @@ public class UsuariosSystemTest {
 		// fechando o driver para encerrar a comunicação com o browser
 		driver.close();
 	}
+	
 	@Test
 	public void deveAdicionarUmUsuario() {
 		// passando a url que iremos testar
@@ -53,7 +56,17 @@ public class UsuariosSystemTest {
 	}
 	
 	@Test
-	public void deveRetornarMensagemDeErroSeUsuarioNaoPreencherOCampoNome() {
+	public void deveRetornarMensagemDeErroSeUsuarioNaoPreencherNome() {
+		// passando a url que iremos testar
+		driver.get("http://localhost:8080/usuarios/new");
+
+		//encontrando input do e-mail e colocando valor
+		WebElement email = driver.findElement(By.name("usuario.email"));
+		email.sendKeys("email@mail.com");
 		
+		//outra forma de submeter o formulário sem precisar clicar no botão salvar
+		email.submit();
+		
+		assertTrue(driver.getPageSource().contains("Nome obrigatorio!"));
 	}
 }
