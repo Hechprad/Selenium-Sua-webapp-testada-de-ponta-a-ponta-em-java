@@ -2,6 +2,8 @@ package br.com.hech.test;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,13 +12,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class UsuariosSystemTest {
 	
-	@Test
-	public void deveAdicionarUmUsuario() {
+	private WebDriver driver;
+
+	@Before
+	public void setUp() {
 		// caminho do chromedriver para utilizar o Google Chrome
 		System.setProperty("webdriver.chrome.driver", "C:\\Drivers-para-SELENIUM\\Chromedriver\\chromedriver.exe");
 		// driver do chrome
-		WebDriver driver = new ChromeDriver();
-
+		driver = new ChromeDriver();
+	}
+	
+	@After
+	public void closeDriver() {
+		// fechando o driver para encerrar a comunicação com o browser
+		driver.close();
+	}
+	@Test
+	public void deveAdicionarUmUsuario() {
 		// passando a url que iremos testar
 		driver.get("http://localhost:8080/usuarios/new");
 
@@ -34,10 +46,14 @@ public class UsuariosSystemTest {
 
 		// .getPageSource() devolve o código fonte da página
 		boolean achouNome = driver.getPageSource().contains("Jorge Hech");
-		boolean achouEmail = driver.getPageSource().contains("jorge@hech.com");
 		
-		// assert do JUnit
+		// assertTrue do JUnit
 		assertTrue(achouNome);
-		assertTrue(achouEmail);
+		assertTrue(driver.getPageSource().contains("jorge@hech.com"));
+	}
+	
+	@Test
+	public void deveRetornarMensagemDeErroSeUsuarioNaoPreencherOCampoNome() {
+		
 	}
 }
