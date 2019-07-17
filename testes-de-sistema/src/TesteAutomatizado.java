@@ -37,8 +37,8 @@ public class TesteAutomatizado {
 		//WebDriver driver2 = new ChromeDriver();
 		
 		// passando a url que iremos testar
-		driver.get("http://www.google.com.br");
-		//driver2.get("http://www.google.com.br");
+		driver.get("https://www.google.com.br");
+		//driver2.get("https://www.google.com.br");
 		
 		//WebElement representa o objeto que ele encontrou na página
 		WebElement campoDeTexto = driver.findElement(By.name("q"));
@@ -47,6 +47,10 @@ public class TesteAutomatizado {
 		// passando valores para o input de busca do google
 		campoDeTexto.sendKeys("Caelum");
 		// submete o formulário para realizar a busca no google
-		campoDeTexto.submit();		
+		campoDeTexto.submit();
+		/*
+		 * alguns comandos relacionados ao navegador:
+		 * driver.manage().window().maximize().quit();
+		 */
 	}
 }
