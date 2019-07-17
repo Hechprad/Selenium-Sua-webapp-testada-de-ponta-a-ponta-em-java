@@ -6,10 +6,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TesteAutomatizado {
 
 	public static void main(String[] args) {
+		//**************************************************
 		/*
 		 * Link de download do selenium na versão mais recente:
 		 *  - http://selenium-release.storage.googleapis.com/index.html 
 		 */
+		//**************************************************
 		/*
 		 * Para as versões recentes do FireFox precisamos do
 		 * GeckoDriver: download do último release 
@@ -21,7 +23,8 @@ public class TesteAutomatizado {
 		 * executável do gecko driver
 		 */
 		System.setProperty("webdriver.gecko.driver", "C:\\Geckodriver\\geckodriver.exe");
-
+		//**************************************************
+		
 		// WebDriver é a abstração que representa todos os browsers do selenium
 		WebDriver driver = new FirefoxDriver();
 		// passando a url que iremos testar
