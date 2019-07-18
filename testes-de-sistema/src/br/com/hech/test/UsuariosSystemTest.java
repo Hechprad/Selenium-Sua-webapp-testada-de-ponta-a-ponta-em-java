@@ -24,6 +24,9 @@ public class UsuariosSystemTest {
 		this.driver = new ChromeDriver();
 		this.usuarios = new UsuariosPage(driver);
 		
+		// limpa as informações do banco de dados
+		driver.get("http://localhost:8080/apenas-teste/limpa");
+		
 		// visita a página de usuários
 		usuarios.visita();
 	}
@@ -37,16 +40,15 @@ public class UsuariosSystemTest {
 	@Test
 	public void deveAdicionarUmUsuario() {
 		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
-		assertTrue(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
 		
-		// limpando o BD
-		usuarios.deletaUsuarioNaPosicao(1);
+		assertTrue(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
 	}
 	
 	@Test
 	public void naoDeveAdicionarUmUsuarioSemNome() {
 		NovoUsuarioPage form = usuarios.novo();
 		form.cadastra("", "jorge@email.com");
+		
 		assertTrue(form.validacaoDeNomeObrigatorio());
 	}
 	
@@ -54,6 +56,7 @@ public class UsuariosSystemTest {
 	public void naoDeveAdicionarUmUsuarioSemNomeOuEmail() {
 		NovoUsuarioPage formVazio = usuarios.novo(); 
 		formVazio.cadastra("", "");
+		
 		// verificando se as mensagens de validação foram exibidas
 		assertTrue(formVazio.validacaoDeNomeObrigatorio());
 		assertTrue(formVazio.validacaoDeEmailObrigatorio());
@@ -75,5 +78,14 @@ public class UsuariosSystemTest {
 
 		usuarios.deletaUsuarioNaPosicao(1);
 		assertFalse(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
+	}
+	
+	@Test
+	public void deveAlterarUmUsuario() {
+		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
+		usuarios.editaUsuarioNaPosicao(1).para("Roberto Silva", "roberto@silva.com");
+		
+		assertFalse(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
+		assertTrue(usuarios.existeNaListagem("Roberto Silva", "roberto@silva.com"));
 	}
 }

@@ -21,6 +21,9 @@ public class LeiloesSystemTest {
 		this.driver = new ChromeDriver();
 		this.leiloes = new LeiloesPage(driver);
 		
+		// limpa as informações do banco de dados
+		driver.get("http://localhost:8080/apenas-teste/limpa");
+		
 		// criando novo usuário para o cenário de testes
 		UsuariosPage usuarios = new UsuariosPage(driver);
 		usuarios.visita();
@@ -42,5 +45,14 @@ public class LeiloesSystemTest {
 		novoLeilao.preenche("Geladeira", 1000, "Jorge Hech", true);
 		
 		assertTrue(leiloes.existe("Geladeira", 1000, "Jorge Hech", true));
+	}
+	
+	@Test
+	public void naoDeveCadastrarLeilaoSemNomeOuValor() {
+		NovoLeilaoPage novoLeilao = leiloes.novo();
+		novoLeilao.preenche("", 0, "Jorge Hech", true);
+		
+		assertTrue(novoLeilao.validacaoDeProdutoApareceu());
+		assertTrue(novoLeilao.validacaoDeValorApareceu());
 	}
 }

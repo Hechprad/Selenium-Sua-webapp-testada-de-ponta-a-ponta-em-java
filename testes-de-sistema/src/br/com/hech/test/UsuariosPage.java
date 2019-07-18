@@ -35,4 +35,10 @@ public class UsuariosPage {
 		alerta.accept();
 	}
 
+	public AlteraUsuarioPage editaUsuarioNaPosicao(int posicao) {
+		// localiza o primeiro link para editar na lista de usuários
+		driver.findElements(By.linkText("editar")).get(posicao-1).click();
+		return new AlteraUsuarioPage(driver);
+	}
+
 }
