@@ -13,10 +13,13 @@ public class NovoUsuarioPage {
 	}
 
 	public void cadastra(String nome, String email) {
-		WebElement txtNome = driver.findElement(By.name("usuario.name"));
+		
+		WebElement txtNome = driver.findElement(By.name("usuario.nome"));
 		WebElement txtEmail = driver.findElement(By.name("usuario.email"));
+		
 		txtNome.sendKeys(nome);
 		txtEmail.sendKeys(email);
+		
 		txtNome.submit();
 	}
 }

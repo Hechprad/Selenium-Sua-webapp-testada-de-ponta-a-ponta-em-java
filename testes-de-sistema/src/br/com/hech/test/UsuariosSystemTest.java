@@ -21,8 +21,6 @@ public class UsuariosSystemTest {
 		System.setProperty("webdriver.chrome.driver", "C:\\Drivers-para-SELENIUM\\Chromedriver\\chromedriver.exe");
 		// driver do chrome
 		driver = new ChromeDriver();
-		// passando a url que iremos testar
-		driver.get("http://localhost:8080/usuarios/new");
 	}
 	
 	@After
@@ -54,8 +52,11 @@ public class UsuariosSystemTest {
 		
 		// código novo
 		UsuariosPage usuarios = new UsuariosPage(driver);
+		// acessa a página com a lista de usuários
+		usuarios.visita();
+		// cadastra um novo usuário
 		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
-		
+		// verifica e valida o teste
 		assertTrue(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
 	}
 	
