@@ -26,7 +26,7 @@ public class NovoLeilaoPage {
 		
 		// check box de usado
 		if(usado) {
-			WebElement ckUsado = driver.findElement(By.className("leilao.usado"));
+			WebElement ckUsado = driver.findElement(By.name("leilao.usado"));
 			ckUsado.click();
 		}
 		

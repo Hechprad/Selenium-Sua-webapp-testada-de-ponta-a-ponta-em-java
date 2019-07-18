@@ -16,7 +16,9 @@ public class LeiloesPage {
 	}
 	
 	public NovoLeilaoPage novo() {
-		driver.findElement(By.linkText("Novo Leilão"));
+		// clica no link de novo leilão
+		driver.findElement(By.linkText("Novo Leilão")).click();
+		// retorna a classe que representa a nova página
 		return new NovoLeilaoPage(driver);
 	}
 	
