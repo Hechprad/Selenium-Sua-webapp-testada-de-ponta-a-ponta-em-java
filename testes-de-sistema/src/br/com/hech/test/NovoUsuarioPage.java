@@ -22,4 +22,13 @@ public class NovoUsuarioPage {
 		
 		txtNome.submit();
 	}
+	
+	public boolean validacaoDeNomeObrigatorio() {
+		return driver.getPageSource().contains("Nome obrigatorio!");
+	}
+
+	public boolean validacaoDeEmailObrigatorio() {
+		return driver.getPageSource().contains("E-mail obrigatorio!");
+	}
+	
 }

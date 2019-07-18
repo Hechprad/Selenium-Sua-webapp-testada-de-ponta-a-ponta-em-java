@@ -24,4 +24,5 @@ public class UsuariosPage {
 	public boolean existeNaListagem(String nome, String email) {
 		return driver.getPageSource().contains(nome) && driver.getPageSource().contains(email);
 	}
+
 }
