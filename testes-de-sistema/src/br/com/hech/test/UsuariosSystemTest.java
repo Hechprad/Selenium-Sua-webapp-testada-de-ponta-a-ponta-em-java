@@ -18,7 +18,7 @@ public class UsuariosSystemTest {
 
 	@Before
 	public void inicializa() {
-		// caminho do chromedriver para utilizar o Google Chrome.
+		// caminho do chromedriver para utilizar o Google Chrome
 		System.setProperty("webdriver.chrome.driver", "C:\\Drivers-para-SELENIUM\\Chromedriver\\chromedriver.exe");
 		// driver do chrome
 		this.driver = new ChromeDriver();
