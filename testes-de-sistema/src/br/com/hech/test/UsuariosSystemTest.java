@@ -1,5 +1,6 @@
 package br.com.hech.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,6 +38,9 @@ public class UsuariosSystemTest {
 	public void deveAdicionarUmUsuario() {
 		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
 		assertTrue(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
+		
+		// limpando o BD
+		usuarios.deletaUsuarioNaPosicao(1);
 	}
 	
 	@Test
@@ -62,5 +66,14 @@ public class UsuariosSystemTest {
 		
 		// verificando a URL esperada com a URL atual
 		assertEquals("http://localhost:8080/usuarios/new", driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void deveExcluirUmUsuario() {
+		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
+		assertTrue(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
+
+		usuarios.deletaUsuarioNaPosicao(1);
+		assertFalse(usuarios.existeNaListagem("Jorge Hech", "jorge@hech.com"));
 	}
 }
