@@ -24,15 +24,10 @@ public class LanceSystemTest {
 		driver.get("http://localhost:8080/apenas-teste/limpa");
 		
 		// cenário padrão
-		UsuariosPage usuarios = new UsuariosPage(driver);
-		usuarios.visita();
-		usuarios.novo().cadastra("Jorge Hech", "jorge@hech.com");
-		usuarios.novo().cadastra("Alan R", "alan@email.com");
-		
-		LeiloesPage leiloes = new LeiloesPage(driver);
-		leiloes.visita();
-		leiloes.novo().preenche("Geladeira", 100, "Alan R", false);
-		
+		new CriadorDeCenarios(driver)
+			.umUsuario("Jorge Hech", "jorge@hech.com")
+			.umUsuario("Alan R", "alan@r.com")
+			.umLeilao("Geladeira", 100, "Alan R", false);
 	}
 	
 	@After
