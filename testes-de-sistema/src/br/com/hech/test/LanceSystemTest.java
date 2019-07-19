@@ -21,7 +21,7 @@ public class LanceSystemTest {
 		leiloes = new LeiloesPage(driver);
 		
 		// limpa as informações do banco de dados
-		driver.get("http://localhost:8080/apenas-teste/limpa");
+		driver.get(new URLDaAplicacao().getUrlBase() + "/apenas-teste/limpa");
 		
 		// cenário padrão
 		new CriadorDeCenarios(driver)

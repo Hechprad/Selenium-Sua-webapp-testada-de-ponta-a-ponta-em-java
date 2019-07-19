@@ -31,7 +31,18 @@ public class DetalhesDoLeilaoPage {
 	}
 	
 	public boolean existeLance(String usuario, double valor) {
+		/*
+		 * implicit waits 
+		 * driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 * exemplo: WebElement elementoSurpresa = driver.findElement(By.id("surpresa"));
+		 * 
+		 * o implicit waits precisa ser desligado se não fará isso para todos testes
+		 * 
+		 * driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		 */
 		
+		// link com ExpectedConditions - https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html#textToBePresentInElement-org.openqa.selenium.WebElement-java.lang.String-
+		// explicit wait (para esperar a requisição ajax)
 		boolean temUsuario = new WebDriverWait(driver, 10).until(ExpectedConditions
 		.textToBePresentInElementLocated(By.id("lancesDados"), usuario));
 		
@@ -40,7 +51,4 @@ public class DetalhesDoLeilaoPage {
 		return false;
 	}
 	
-	public void exibe(int posicao) {
-		
-	}
 }

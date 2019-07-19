@@ -22,7 +22,7 @@ public class LeiloesSystemTest {
 		this.leiloes = new LeiloesPage(driver);
 		
 		// limpa as informações do banco de dados
-		driver.get("http://localhost:8080/apenas-teste/limpa");
+		driver.get(new URLDaAplicacao().getUrlBase() + "/apenas-teste/limpa");
 		
 		// criando novo usuário para o cenário de testes
 		UsuariosPage usuarios = new UsuariosPage(driver);

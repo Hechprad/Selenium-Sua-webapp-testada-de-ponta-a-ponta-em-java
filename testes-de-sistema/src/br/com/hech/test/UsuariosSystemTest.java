@@ -25,7 +25,7 @@ public class UsuariosSystemTest {
 		this.usuarios = new UsuariosPage(driver);
 		
 		// limpa as informações do banco de dados
-		driver.get("http://localhost:8080/apenas-teste/limpa");
+		driver.get(new URLDaAplicacao().getUrlBase() + "/apenas-teste/limpa");
 		
 		// visita a página de usuários
 		usuarios.visita();
@@ -68,7 +68,7 @@ public class UsuariosSystemTest {
 		driver.findElement(By.linkText("Novo Usuário")).click();
 		
 		// verificando a URL esperada com a URL atual
-		assertEquals("http://localhost:8080/usuarios/new", driver.getCurrentUrl());
+		assertEquals(new URLDaAplicacao().getUrlBase() + "/usuarios/new", driver.getCurrentUrl());
 	}
 	
 	@Test
