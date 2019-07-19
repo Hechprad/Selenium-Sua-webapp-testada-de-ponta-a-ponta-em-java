@@ -3,6 +3,7 @@
 ### 📌 Download do *Selenium* na versão mais recente:
  - Link para [download](http://selenium-release.storage.googleapis.com/index.html) da última versão do selenium.
    - Versão utilizada: selenium-server-standalone-4.0.0-alpha-2.jar
+   - Link para a documentação do [Selenium](https://seleniumhq.github.io/selenium/docs/api/java/index-all.html)
 ***
 #### Para o navegador Google Chrome precisamos do *ChromeDriver*.
  - Link com informações do [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads/)
